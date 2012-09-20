@@ -1,0 +1,13 @@
+[user]
+	email = keisuke@asial.co.jp
+	name = Keisuke Tada
+[color]
+  ui = true
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  di = diff
+[core]
+  excludesfile = ~/.gitignore

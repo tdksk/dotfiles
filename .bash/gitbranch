@@ -1,0 +1,17 @@
+#!/bin/bash
+# echo git branch for color PS1
+
+name=`git symbolic-ref HEAD 2> /dev/null`
+if [[ -z $name ]]
+then
+    exit
+fi
+
+name=`basename $name`
+st=`git status`
+if [[ -n `echo $st | grep "nothing to commit"` ]]
+then
+    echo "($name)"
+else
+    echo "(* $name)"
+fi
