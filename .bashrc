@@ -17,6 +17,9 @@ case "${OSTYPE}" in
         ;;
 esac
 
+alias ta='tmux a'
+alias tls='tmux ls'
+
 alias gst='git status -sb && git stash list'
 alias gra='git status | grep deleted: | awk "{print \$3}" | xargs git rm'
 
