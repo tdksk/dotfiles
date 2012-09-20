@@ -1,11 +1,21 @@
-source ~/.git-completion.bash
+source ~/.bash/git-completion.bash
 # PS1="\n\`if [ \$? = 0 ]; then echo \[\e[32m\]; else echo \[\e[31m\]; fi\`\u@\h \[\e[33m\]\w\[\e[36m\]\$(__git_ps1)\[\e[0m\]\n\$ "
 PS1='\n`if [ \$? = 0 ]; then echo "\[\e[32m\]"; else echo "\[\e[31m\]"; fi`\u@\h \[\e[33m\]\w\[\e[36m\] `~/.bash/gitbranch`\[\e[0m\]\n\$ '
 
-alias la='ls -laFh --color=auto'
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
+
+case "${OSTYPE}" in
+    # OS X
+    darwin*)
+        alias la='ls -laFhG'
+        ;;
+    # Linux
+    linux*)
+        alias la='ls -laFh --color=auto'
+        ;;
+esac
 
 alias gst='git status -sb && git stash list'
 alias gra='git status | grep deleted: | awk "{print \$3}" | xargs git rm'
@@ -47,3 +57,5 @@ function gstv {
         return 1
     fi
 }
+
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local
