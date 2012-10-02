@@ -17,7 +17,7 @@ case "${OSTYPE}" in
         ;;
 esac
 
-alias ta='tmux a'
+alias tm='tmux a || tmux'
 alias tls='tmux ls'
 
 alias gst='git status -sb && git stash list'
