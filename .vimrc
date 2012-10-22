@@ -28,6 +28,10 @@ autocmd BufNew,BufRead,WinEnter COMMIT_EDITMSG set enc=utf-8 fenc=utf-8
 
 " My keymap
 "----------------------------------------
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
 cmap <C-A> <Home>
 cmap <C-E> <End>
 cmap <C-F> <Right>
