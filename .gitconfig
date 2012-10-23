@@ -9,5 +9,9 @@
   st = status
   br = branch
   di = diff
+  d = diff --stat
+  pr = pull --rebase
+  lg = log -p --stat
+  tree = log --graph --pretty=oneline --abbrev-commit --decorate
 [core]
   excludesfile = ~/.gitignore
