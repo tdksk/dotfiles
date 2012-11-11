@@ -10,6 +10,7 @@
   br = branch
   di = diff
   d = diff --stat
+  dw = diff --word-diff=color
   pr = pull --rebase
   lg = log -p --stat
   tree = log --graph --pretty=oneline --abbrev-commit --decorate
