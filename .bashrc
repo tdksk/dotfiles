@@ -1,3 +1,15 @@
+# 履歴保存数
+export HISTSIZE=10000
+# 重複履歴を無視 & 空白から始めたコマンドを保存しない
+export HISTCONTROL=ignoreboth
+# 履歴保存対象外
+export HISTIGNORE="?:??:???:history*:cd ~:cd ..:emacs:git di:git d:gst"
+# 履歴に時刻を追加
+export HISTTIMEFORMAT='%Y%m%d %T '
+# 履歴の共有
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -n"
+
 source ~/.bash/git-completion.bash
 # PS1="\n\`if [ \$? = 0 ]; then echo \[\e[32m\]; else echo \[\e[31m\]; fi\`\u@\h \[\e[33m\]\w\[\e[36m\]\$(__git_ps1)\[\e[0m\]\n\$ "
 PS1='\n`if [ \$? = 0 ]; then echo "\[\e[32m\]"; else echo "\[\e[31m\]"; fi`\u@\h \[\e[33m\]\w\[\e[36m\] `~/.bash/gitbranch`\[\e[0m\]\n\$ '
