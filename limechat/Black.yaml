@@ -1,0 +1,43 @@
+log-view:
+  nickname-format: '%n '
+
+common: &common
+  background-color: '#000'
+  color: '#ccc'
+  font-family: 'Monaco'
+  font-size: 13.0
+
+input-text:
+  <<: *common
+
+member-list:
+  <<: *common
+  operator:
+    color: '#ccc'
+  selected:
+    color: '#f7d94c'
+    background:
+      top-line-color: '#000'
+      bottom-line-color: '#000'
+      top-color: '#000'
+      bottom-color: '#000'
+
+server-tree:
+  <<: *common
+  normal:
+    active:
+      color: '#ccc'
+    inactive:
+      color: '#ccc'
+  selected:
+    active:
+      color: '#f7d94c'
+    inactive:
+      color: '#ccc'
+    background:
+      top-line-color: '#000'
+      bottom-line-color: '#000'
+      top-color: '#000'
+      bottom-color: '#000'
+  unread:
+    color: '#86c166'
