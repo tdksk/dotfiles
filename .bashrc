@@ -45,7 +45,17 @@ function l {
 alias tm='tmux a || tmux'
 alias tls='tmux ls'
 
+# aliases for git
+alias g='git'
 alias gst='git status -sb && git stash list'
+alias gad='git add'
+alias gco='git checkout'
+alias gci='git commit'
+alias gbr='git branch'
+alias gba='git branch -a'
+alias gdi='git diff'
+alias gd='git diff --stat'
+alias gdc='git diff --cached'
 alias gra='git status | grep deleted: | awk "{print \$3}" | xargs git rm'
 
 function gsta {
