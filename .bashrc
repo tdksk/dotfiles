@@ -20,8 +20,7 @@ shopt -s cdspell
 # shopt -s dirspell
 
 source ~/.bash/git-completion.bash
-# PS1="\n\`if [ \$? = 0 ]; then echo \[\e[32m\]; else echo \[\e[31m\]; fi\`\u@\h \[\e[33m\]\w\[\e[36m\]\$(__git_ps1)\[\e[0m\]\n\$ "
-PS1='\n`if [ \$? = 0 ]; then echo "\[\e[32m\]"; else echo "\[\e[31m\]"; fi`\u@\h \[\e[33m\]\w\[\e[36m\] `~/.bash/gitbranch`\[\e[0m\]\n\$ '
+PS1='\[\e[1;30m\]`for i in \`seq 11 1 ${COLUMNS}\`; do echo -n "-"; done`[\t]\n`if [ \$? = 0 ]; then echo "\[\e[0;32m\]"; else echo "\[\e[0;31m\]"; fi`\u@\h \[\e[0;33m\]\w\[\e[0;36m\] `~/.bash/gitbranch`\n\[\e[1;30m\]\$\[\e[0m\] '
 
 alias rm='rm -i'
 alias mv='mv -i'
