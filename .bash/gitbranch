@@ -25,7 +25,7 @@ then
 elif [[ -n `echo ${st} | grep "# Your branch is behind of"` ]]
 then
     remote=" ↓"
-elif [[ -n `echo ${st} | grep "# Your branch and (.*) have diverged"` ]]
+elif [[ -n `echo ${st} | grep "have diverged,"` ]]
 then
     remote=" ↕"
 fi
