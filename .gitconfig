@@ -3,6 +3,8 @@
   email = tdkskdt@gmail.com
 [color]
   ui = true
+[push]
+  default = current
 [alias]
   ad = add
   co = checkout
