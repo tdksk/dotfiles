@@ -3,7 +3,7 @@ export HISTSIZE=10000
 # 重複履歴を無視 & 空白から始めたコマンドを保存しない
 export HISTCONTROL=ignoreboth
 # 履歴保存対象外
-export HISTIGNORE="?:??:???:history*:cd ~:cd ..:emacs:git di:git d:gst:l *"
+export HISTIGNORE="?:??:???:history*:cd ~:cd ..:l *"
 # 履歴に時刻を追加
 export HISTTIMEFORMAT='%Y%m%d %T '
 # 履歴の共有
@@ -42,56 +42,69 @@ function l {
     if [ "$1" ]; then history "$1"; else history 30; fi
 }
 
+alias e='emacs'
 alias tm='tmux a || tmux'
 alias tls='tmux ls'
+alias b='bundle'
+alias be='bundle exec'
+alias t='tig'
 
 # aliases for git
 alias g='git'
-alias gst='git status -sb && git stash list'
-alias gad='git add'
-alias gco='git checkout'
-alias gci='git commit'
-alias gbr='git branch'
-alias gba='git branch -a'
-alias gdi='git diff'
-alias gd='git diff --stat'
-alias gdc='git diff --cached'
+alias s='git status -sb && git stash list'
+alias ad='git add'
+alias aa='git add . && s'
+alias co='git checkout'
+alias ci='git commit'
+alias br='git branch'
+alias ba='git branch -a'
+alias c='git diff --cached'
+alias gg='git grep -I -n -i --heading --break -e'
 alias gra='git status | grep deleted: | awk "{print \$3}" | xargs git rm'
 
-function gsta {
+function m {
+    git commit -m "$*"
+}
+
+function am {
+    if [ $# -eq 0 ]; then
+        git commit --amend -C HEAD
+    else
+        git commit --amend -m "$*"
+    fi
+}
+
+function a {
     if [ $# -eq 1 ]; then
         git add `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
-        gst
+        s
     else
-        echo "'"gsta"'" must take exactly one argument.
-        return 1
+        git add -i
     fi
 }
 
-function gstc {
-    if [ $# -eq 1 ]; then
-        git checkout `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
-        gst
-    else
-        echo "'"gstc"'" must take exactly one argument.
-        return 1
-    fi
-}
-
-function gstd {
+function d {
     if [ $# -eq 1 ]; then
         git diff -- `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
     else
-        echo "'"gstd"'" must take exactly one argument.
+        git diff
+    fi
+}
+
+function r {
+    if [ $# -eq 1 ]; then
+        git reset -- `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
+    else
+        echo "'"r"'" must take exactly one argument.
         return 1
     fi
 }
 
-function gstv {
+function v {
     if [ $# -eq 1 ]; then
         vim `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
     else
-        echo "'"gstv"'" must take exactly one argument.
+        echo "'"v"'" must take exactly one argument.
         return 1
     fi
 }
