@@ -25,9 +25,26 @@ if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
 else
     source ~/.bash/git-completion.bash
 fi
-if type _git > /dev/null 2>&1; then
-    complete -o bashdefault -o default -o nospace -F _git g 3>/dev/null || complete -o default -o nospace -F _git g
-fi
+complete -o bashdefault -o default -o nospace -F _git g 3>/dev/null || complete -o default -o nospace -F _git g
+__define_git_completion () {
+eval "
+    _git_$2_shortcut () {
+        COMP_LINE=\"git $2\${COMP_LINE#$1}\"
+        let COMP_POINT+=$((4+${#2}-${#1}))
+        COMP_WORDS=(git $2 \"\${COMP_WORDS[@]:1}\")
+        let COMP_CWORD+=1
+
+        local cur words cword prev
+        _get_comp_words_by_ref -n =: cur words cword prev
+        _git_$2
+    }
+"
+}
+__git_shortcut () {
+    type _git_$2_shortcut &>/dev/null || __define_git_completion $1 $2
+    alias $1="git $2 $3"
+    complete -o default -o nospace -F _git_$2_shortcut $1
+}
 
 PS1='\[\e[1;30m\]`for i in \`seq 11 1 ${COLUMNS}\`; do echo -n "-"; done`[\t]\n`if [ \$? = 0 ]; then echo "\[\e[0;32m\]"; else echo "\[\e[0;31m\]"; fi`\u@\h \[\e[0;33m\]\w\[\e[0;36m\] `~/.bash/gitbranch`\n\[\e[1;30m\]\$\[\e[0m\] '
 
@@ -61,15 +78,15 @@ alias t='tig'
 # aliases for git
 alias g='git'
 alias s='git status -sb && git stash list'
-alias ad='git add'
 alias aa='git add . && s'
-alias co='git checkout'
-alias ci='git commit'
-alias br='git branch'
-alias ba='git branch -a'
-alias c='git diff --cached'
 alias gg='git grep -I -n -i --heading --break -e'
 alias gra='git status | grep deleted: | awk "{print \$3}" | xargs git rm'
+__git_shortcut ad add
+__git_shortcut co checkout
+__git_shortcut ci commit
+__git_shortcut br branch
+__git_shortcut ba branch -a
+__git_shortcut c  diff --cached
 
 function m {
     git commit -m "$*"
