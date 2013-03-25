@@ -19,7 +19,16 @@ shopt -s cdspell
 # 補完するときディレクトリ名をよしなに修正する >=4.0
 # shopt -s dirspell
 
-source ~/.bash/git-completion.bash
+# git-completion
+if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
+    source `brew --prefix`/etc/bash_completion.d/git-completion.bash
+else
+    source ~/.bash/git-completion.bash
+fi
+if type _git > /dev/null 2>&1; then
+    complete -o bashdefault -o default -o nospace -F _git g 3>/dev/null || complete -o default -o nospace -F _git g
+fi
+
 PS1='\[\e[1;30m\]`for i in \`seq 11 1 ${COLUMNS}\`; do echo -n "-"; done`[\t]\n`if [ \$? = 0 ]; then echo "\[\e[0;32m\]"; else echo "\[\e[0;31m\]"; fi`\u@\h \[\e[0;33m\]\w\[\e[0;36m\] `~/.bash/gitbranch`\n\[\e[1;30m\]\$\[\e[0m\] '
 
 alias rm='rm -i'
