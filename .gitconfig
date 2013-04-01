@@ -21,3 +21,18 @@
   tree = log --graph --pretty=oneline --abbrev-commit --decorate
 [core]
   excludesfile = ~/.gitignore
+
+[tig "bind"]
+  # Disable default G mapping to git gc
+  generic = G none
+  # Keybinings like vim
+  generic = g move-first-line
+  generic = G move-last-line
+  generic = u move-page-up
+  generic = d move-page-down
+  generic = ^b move-page-up
+  generic = ^f move-page-down
+[tig "color"]
+  cursor = default black
+  title-focus = white black
+  title-blur = black white
