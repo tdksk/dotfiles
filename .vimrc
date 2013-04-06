@@ -32,6 +32,8 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
+noremap ; :
+noremap : ;
 cmap <C-A> <Home>
 cmap <C-E> <End>
 cmap <C-F> <Right>
