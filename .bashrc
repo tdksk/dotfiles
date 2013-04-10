@@ -20,7 +20,7 @@ shopt -s cdspell
 # shopt -s dirspell
 
 # git-completion
-if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
+if type brew > /dev/null 2>&1 && [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
     source `brew --prefix`/etc/bash_completion.d/git-completion.bash
 else
     source ~/.bash/git-completion.bash
