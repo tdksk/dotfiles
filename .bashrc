@@ -1,3 +1,6 @@
+# 上書き禁止
+set -o noclobber
+
 # 履歴保存数
 export HISTSIZE=10000
 # 重複履歴を無視 & 空白から始めたコマンドを保存しない
