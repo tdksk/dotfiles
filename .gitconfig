@@ -17,6 +17,8 @@
   dc = diff --cached
   dw = diff --word-diff=color
   pr = pull --rebase
+  sm = submodule
+  smup = submodule update --init --recursive
   lg = log -p --stat
   tree = log --graph --pretty=oneline --abbrev-commit --decorate
 [core]
