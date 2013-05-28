@@ -20,8 +20,9 @@
   sm = submodule
   smup = submodule update --init --recursive
   smpa = "submodule foreach 'git checkout master; git pull'"
+  l = log --stat --pretty=format:'%Cred%h %Creset%s %Cgreen(%cr) %C(bold blue)%an%Creset%C(yellow)%d %Creset'
   lg = log -p --stat
-  tree = log --graph --pretty=oneline --abbrev-commit --decorate
+  tree = log --graph --pretty=format:'%Cred%h%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative
 [core]
   excludesfile = ~/.gitignore
 
