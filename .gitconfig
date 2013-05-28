@@ -19,6 +19,7 @@
   pr = pull --rebase
   sm = submodule
   smup = submodule update --init --recursive
+  smpa = "submodule foreach 'git checkout master; git pull'"
   lg = log -p --stat
   tree = log --graph --pretty=oneline --abbrev-commit --decorate
 [core]
