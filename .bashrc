@@ -1,3 +1,5 @@
+[ -r ~/.aliases ] && source ~/.aliases
+
 # 上書き禁止
 set -o noclobber
 
@@ -48,53 +50,6 @@ __git_shortcut () {
     alias $1="git $2 $3"
     complete -o default -o nospace -F _git_$2_shortcut $1
 }
-
-PS1='\[\e[1;30m\]`for i in \`seq 11 1 ${COLUMNS}\`; do echo -n "-"; done`[\t]\n`if [ \$? = 0 ]; then echo "\[\e[0;32m\]"; else echo "\[\e[0;31m\]"; fi`\u@\h \[\e[0;33m\]\w\[\e[0;36m\] `~/.bash/gitbranch`\n\[\e[1;30m\]\$\[\e[0m\] '
-
-alias rm='rm -i'
-alias mv='mv -i'
-alias cp='cp -i'
-
-case "${OSTYPE}" in
-    # OS X
-    darwin*)
-        alias la='ls -laFhG'
-        ;;
-    # Linux
-    linux*)
-        alias la='ls -laFh --color=auto'
-        ;;
-esac
-
-# history のエイリアス (引数なしで30件表示)
-function l {
-    if [ "$1" ]; then history "$1"; else history 30; fi
-}
-
-alias e='emacs'
-alias tls='tmux ls'
-alias b='bundle'
-alias be='bundle exec'
-alias t='tig'
-
-function tm {
-    if [[ ( $OSTYPE == darwin* ) && ( -x $(which reattach-to-user-namespace 2>/dev/null) ) ]]; then
-        # on OS X force tmux's default command to spawn a shell in the user's namespace
-        # https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
-        tweaked_config=$(cat $HOME/.tmux.conf <(echo 'set-option -g default-command "reattach-to-user-namespace -l $SHELL"'))
-
-        tmux attach || tmux -f <(echo "$tweaked_config") new-session
-    else
-        tmux attach || tmux new-session
-    fi
-}
-
-# aliases for git
-alias g='git'
-alias s='git status -sb && git stash list'
-alias aa='git add . && s'
-alias gg='git grep -I -n -i --heading --break -e'
-alias gra='git status | grep deleted: | awk "{print \$3}" | xargs git rm'
 __git_shortcut ad add
 __git_shortcut co checkout
 __git_shortcut ci commit
@@ -102,59 +57,6 @@ __git_shortcut br branch
 __git_shortcut ba branch -a
 __git_shortcut c  diff --cached
 
-function m {
-    git commit -m "$*"
-}
-
-function am {
-    if [ $# -eq 0 ]; then
-        git commit --amend -C HEAD
-    else
-        git commit --amend -m "$*"
-    fi
-}
-
-function a {
-    if [ $# -eq 1 ]; then
-        git add `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
-        s
-    else
-        git add -i
-    fi
-}
-
-function d {
-    if [ $# -eq 1 ]; then
-        git diff -- `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
-    else
-        git diff
-    fi
-}
-
-function r {
-    if [ $# -eq 1 ]; then
-        git reset -- `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
-    else
-        echo "'"r"'" must take exactly one argument.
-        return 1
-    fi
-}
-
-function v {
-    if [ $# -eq 1 ]; then
-        vim `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
-    else
-        echo "'"v"'" must take exactly one argument.
-        return 1
-    fi
-}
-
-# Git リポジトリのトップレベルに cd
-function u {
-    cd ./$(git rev-parse --show-cdup)
-    if [ $# = 1 ]; then
-        cd $1
-    fi
-}
+PS1='\[\e[1;30m\]`for i in \`seq 11 1 ${COLUMNS}\`; do echo -n "-"; done`[\t]\n`if [ \$? = 0 ]; then echo "\[\e[0;32m\]"; else echo "\[\e[0;31m\]"; fi`\u@\h \[\e[0;33m\]\w\[\e[0;36m\] `~/.bash/gitbranch`\n\[\e[1;30m\]\$\[\e[0m\] '
 
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local

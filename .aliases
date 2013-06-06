@@ -1,0 +1,106 @@
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -i'
+
+case $OSTYPE in
+    # OS X
+    darwin*)
+        alias ls='ls -hG'
+        ;;
+    # Linux
+    linux*)
+        alias ls='ls -h --show-control-chars --color=auto'
+        ;;
+esac
+
+alias la='ls -laF'
+
+h() {
+    if [ "$1" ]; then history "$1"; else history 30; fi
+}
+
+alias e='emacs'
+alias tls='tmux ls'
+alias b='bundle'
+alias be='bundle exec'
+alias t='tig'
+
+tm() {
+    if [[ ( $OSTYPE == darwin* ) && ( -x $(which reattach-to-user-namespace 2>/dev/null) ) ]]; then
+        # on OS X force tmux's default command to spawn a shell in the user's namespace
+        # https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
+        tweaked_config=$(cat $HOME/.tmux.conf <(echo 'set-option -g default-command "reattach-to-user-namespace -l $SHELL"'))
+
+        tmux attach || tmux -f <(echo "$tweaked_config") new-session
+    else
+        tmux attach || tmux new-session
+    fi
+}
+
+# git
+alias g='git'
+alias s='git status -sb && git stash list'
+alias ad='git add'
+alias aa='git add . && s'
+alias co='git checkout'
+alias ci='git commit'
+alias br='git branch'
+alias ba='git branch -a'
+alias c='git diff --cached'
+alias gg='git grep -I -n -i --heading --break -e'
+alias gra='git status | grep deleted: | awk "{print \$3}" | xargs git rm'
+
+m() {
+    git commit -m "$*"
+}
+
+am() {
+    if [ $# -eq 0 ]; then
+        git commit --amend -C HEAD
+    else
+        git commit --amend -m "$*"
+    fi
+}
+
+a() {
+    if [ $# -eq 1 ]; then
+        git add `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
+        s
+    else
+        git add -i
+    fi
+}
+
+d() {
+    if [ $# -eq 1 ]; then
+        git diff -- `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
+    else
+        git diff
+    fi
+}
+
+r() {
+    if [ $# -eq 1 ]; then
+        git reset -- `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
+    else
+        echo "'"r"'" must take exactly one argument.
+        return 1
+    fi
+}
+
+v() {
+    if [ $# -eq 1 ]; then
+        vim `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
+    else
+        echo "'"v"'" must take exactly one argument.
+        return 1
+    fi
+}
+
+# Git リポジトリのトップレベルに cd
+u() {
+    cd ./$(git rev-parse --show-cdup)
+    if [ $# = 1 ]; then
+        cd $1
+    fi
+}
