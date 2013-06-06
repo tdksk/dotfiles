@@ -47,6 +47,8 @@ alias ci='git commit'
 alias br='git branch'
 alias ba='git branch -a'
 alias c='git diff --cached'
+alias l='git l'
+alias tree='git tree'
 alias gg='git grep -I -n -i --heading --break -e'
 alias gra='git status | grep deleted: | awk "{print \$3}" | xargs git rm'
 
