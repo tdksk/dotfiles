@@ -147,5 +147,14 @@ alias -g T="| tail"
 alias -g H="| head"
 alias -g L="| less -R"
 
+# z
+if [ -f ~/.zsh/z/z.sh ]; then
+    _Z_CMD=j
+    source ~/.zsh/z/z.sh
+    precmd() {
+        _z --add "$(pwd -P)"
+    }
+fi
+
 # local
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
