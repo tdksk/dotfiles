@@ -85,11 +85,13 @@ if [ -f ~/.zsh/zsh-vcs-prompt/zshrc.sh ]; then
 fi
 
 if [ "$SSH_CLIENT" ]; then
-    PROMPT_HOST="@%m"
+    PROMPT_HOST="@%{$fg_bold[blue]%}%m"
 else
     PROMPT_HOST=""
 fi
-PROMPT='%{$fg_bold[black]%}`for i in {12..$COLUMNS}; echo -n "─"` [%D{%H:%M:%S}]%{$reset_color%}'$'\n''%{%(?.$fg[green].$fg[red])%}%n$PROMPT_HOST %{${fg[yellow]}%}%~ %{$reset_color%}$(vcs_super_info)'$'\n''%{$fg_bold[black]%}%(!.#.$) %{$reset_color%}%'
+PROMPT='%{%(?.$fg_bold[black].$fg_bold[red])%}`for i in {12..$COLUMNS}; echo -n "─"` [%D{%H:%M:%S}]%{$reset_color%}
+%{$fg_bold[black]%}%n$PROMPT_HOST %{$reset_color%}%{${fg[yellow]}%}%~ %{$reset_color%}$(vcs_super_info)
+%{$fg_bold[black]%}%(!.#.$) %{$reset_color%}%'
 SPROMPT='%{$fg_bold[white]%}%r %{$reset_color%}%{$fg[yellow]%}is correct? [n,y,a,e]: %{$reset_color%}'
 
 # complement
