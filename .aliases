@@ -19,11 +19,18 @@ h() {
     if [ "$1" ]; then history "$1"; else history 30; fi
 }
 
-alias e='emacs'
 alias tls='tmux ls'
 alias b='bundle'
 alias be='bundle exec'
 alias t='tig'
+
+e() {
+    if [ $# -eq 0 ]; then
+        emacs
+    else
+        emacsclient -n $*
+    fi
+}
 
 tm() {
     if [[ ( $OSTYPE == darwin* ) && ( -x $(which reattach-to-user-namespace 2>/dev/null) ) ]]; then
