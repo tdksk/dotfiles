@@ -53,6 +53,10 @@ alias co='git checkout'
 alias ci='git commit'
 alias br='git branch'
 alias ba='git branch -a'
+alias sm='git submodule'
+alias sma='git submodule add'
+alias smup='git submodule update --init --recursive'
+alias smpa='git submodule foreach "git checkout master; git pull"'
 alias c='git diff --cached'
 alias l='git l'
 alias tree='git tree'
@@ -115,7 +119,7 @@ u() {
 }
 
 # git-submodule-rm
-gsmrm() {
+smrm() {
     if [ -z "$1" ]; then
         echo "Usage: $0 submodule-path"
         exit
