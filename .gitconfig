@@ -9,7 +9,7 @@
   ad = add
   co = checkout
   ci = commit
-  st = status
+  s = status
   br = branch
   ba = branch -a
   di = diff
@@ -17,6 +17,8 @@
   dc = diff --cached
   dw = diff --word-diff=color
   pr = pull --rebase
+  st = stash
+  stp = stash pop
   sm = submodule
   smup = submodule update --init --recursive
   smpa = "submodule foreach 'git checkout master; git pull'"

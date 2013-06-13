@@ -53,6 +53,7 @@ alias co='git checkout'
 alias ci='git commit'
 alias br='git branch'
 alias ba='git branch -a'
+alias st='git stash save'
 alias sm='git submodule'
 alias sma='git submodule add'
 alias smup='git submodule update --init --recursive'
@@ -72,6 +73,14 @@ am() {
         git commit --amend -C HEAD
     else
         git commit --amend -m "$*"
+    fi
+}
+
+stp() {
+    if [ $# -eq 1 ]; then
+        git stash pop stash@{$1}
+    else
+        git stash pop
     fi
 }
 
