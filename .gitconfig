@@ -17,6 +17,9 @@
   dc = diff --cached
   dw = diff --word-diff=color
   pr = pull --rebase
+  ri = rebase -i
+  rcontinue = rebase --continue
+  rabort = rebase --abort
   st = stash
   stp = stash pop
   sm = submodule
