@@ -89,7 +89,7 @@ if [ "$SSH_CLIENT" ]; then
 else
     PROMPT_HOST=""
 fi
-PROMPT='%{%(?.$fg_bold[black].$fg_bold[red])%}`for i in {12..$COLUMNS}; echo -n "─"` [%D{%H:%M:%S}]%{$reset_color%}
+PROMPT='%{%(?.$fg_bold[black].$fg_bold[red])%}`for i in {13..$COLUMNS}; echo -n "─"` [%D{%H:%M:%S}]%{$reset_color%}
 %{$fg_bold[black]%}%n$PROMPT_HOST %{$reset_color%}%{${fg[yellow]}%}%~ %{$reset_color%}$(vcs_super_info)
 %{$fg_bold[black]%}%(!.#.$) %{$reset_color%}%'
 SPROMPT='%{$fg_bold[white]%}%r %{$reset_color%}%{$fg[yellow]%}is correct? [n,y,a,e]: %{$reset_color%}'
