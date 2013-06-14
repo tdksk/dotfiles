@@ -7,8 +7,8 @@ bindkey -e
 setopt auto_cd
 setopt auto_resume
 setopt auto_list
-setopt auto_pushd
-setopt pushd_ignore_dups
+# setopt auto_pushd
+# setopt pushd_ignore_dups
 setopt list_types
 setopt correct
 setopt equals
