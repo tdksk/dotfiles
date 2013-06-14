@@ -163,5 +163,13 @@ if [ -f ~/.zsh/z/z.sh ]; then
     }
 fi
 
+# zaw
+if [ -f ~/.zsh/zaw/zaw.zsh ]; then
+    source ~/.zsh/zaw/zaw.zsh
+    zstyle ':filter-select' case-insensitive yes
+    bindkey "c'" zaw-history
+    bindkey "c;" zaw-git-branches
+fi
+
 # local
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
