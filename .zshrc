@@ -138,6 +138,14 @@ setopt append_history
 setopt extended_history
 setopt hist_verify
 
+# http://mollifier.hatenablog.com/entry/20090728/p1
+zshaddhistory() {
+    local line=${1%%$'\n'}
+
+    # 以下の条件をすべて満たすものだけをヒストリに追加する
+    [[ ${#line} -ge 5 ]]
+}
+
 autoload -Uz history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
