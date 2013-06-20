@@ -95,6 +95,11 @@ PROMPT='%{%(?.$fg_bold[black].$fg_bold[red])%}`for i in {13..$COLUMNS}; echo -n 
 SPROMPT='%{$fg_bold[white]%}%r %{$reset_color%}%{$fg[yellow]%}is correct? [n,y,a,e]: %{$reset_color%}'
 
 # complement
+## zsh-completions
+if [ -e ~/.zsh/zsh-completions/src ]; then
+    fpath=(~/.zsh/zsh-completions/src $fpath)
+fi
+
 autoload -Uz compinit
 compinit
 
