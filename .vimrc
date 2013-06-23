@@ -64,36 +64,22 @@ set ttyfast                             " 再描画を高速にする
 
 syntax on
 
-" 特殊な空白のハイライト
-if has("syntax")
-    function! ActivateInvisibleIndicator()
-        syntax match InvisibleJISX0208Space "　" display containedin=ALL
-        highlight InvisibleJISX0208Space term=underline ctermbg=darkgrey guibg=Blue
-        syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
-        highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=Red
-        syntax match InvisibleTab "$" display containedin=ALL
-        highlight InvisibleTab term=underline ctermbg=Red guibg=Red
-    endf
-
-    augroup invisible
-    autocmd! invisible
-    autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
-    augroup END
-endif
-
 " 入力モード時、ステータスラインのカラーを変更
+highlight StatusLine ctermfg=Black ctermbg=White
 augroup InsertHook
     autocmd!
-    autocmd InsertEnter * highlight StatusLine guifg=White guibg=Black
-    autocmd InsertLeave * highlight StatusLine guifg=Black guibg=Blue
+    autocmd InsertEnter * highlight StatusLine ctermfg=White ctermbg=Black
+    autocmd InsertLeave * highlight StatusLine ctermfg=Black ctermbg=White
 augroup END
 
-" カーソルの行と列をハイライト
-" augroup cch
-"     autocmd! cch
-"     autocmd WinLeave * set nocursorcolumn nocursorline
-"     autocmd WinEnter,BufRead * set cursorcolumn cursorline
-" augroup END
+" 現在行のハイライト
+set cursorline
+highlight CursorLine cterm=bold ctermbg=Black
+
+" その他色
+highlight LineNr ctermfg=darkgray ctermbg=Black
+highlight SpecialKey ctermfg=darkgray
+highlight NonText ctermfg=darkgray
 
 "============================================================
 " complement settings
