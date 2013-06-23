@@ -2,11 +2,14 @@
 " general settings
 "============================================================
 set shellslash                  " スラッシュを区切りにしてファイル名を展開する
-set textwidth=1000              " 右端で折り返さない
+set textwidth=0                 " 右端で折り返さない
 set browsedir=current           " Exploreの初期ディレクトリ
 set scrolloff=10                " スクロール時の余白
 set autoread                    " ファイルが書き換えられたら自動で読み直す
 set vb t_vb=                    " ビープ音を鳴らさない
+set nowritebackup
+set nobackup
+set noswapfile
 
 " サーチオプション
 "----------------------------------------
@@ -18,6 +21,10 @@ set smartcase           " 大文字が含まれている場合は大文字小文
 noremap <ESC><ESC> :nohlsearch<CR><ESC>
 " カーソル下の単語を * で検索
 vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>
+
+" バックスラッシュやクエスチョンを状況に合わせ自動的にエスケープ
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
 let Grep_Skip_Dirs = '.svn .git'
 let Grep_Skip_Files = '*.bak *~ *.swp'
@@ -61,9 +68,10 @@ set ambiwidth=double                    " 一部のマルチバイト文字をas
 set display=uhex                        " 印字不可能文字を16進数で表示
 set laststatus=2                        " ステータスラインを常時表示
 
-set listchars=tab:>\-,eol:$,trail:_     " 不可視文字の設定
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 
 set showmatch                           " カッコの対応をハイライト
+set matchpairs& matchpairs+=<:>         " 対応カッコに'<'と'>'のペアを追加
 set list                                " 不可視文字をハイライト
 
 set lazyredraw                          " スクリプト実行中に画面を再描画しない
@@ -92,3 +100,4 @@ highlight NonText ctermfg=darkgray
 " complement settings
 "============================================================
 set wildmenu        " 補完をwildmenu化
+set infercase       " 補完時に大文字小文字を区別しない
