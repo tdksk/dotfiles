@@ -14,6 +14,10 @@ set hlsearch            " 検索文字をハイライト
 set incsearch           " インクリメンタルサーチ
 set ignorecase          " 大文字小文字を無視
 set smartcase           " 大文字が含まれている場合は大文字小文字を区別
+" ESCを二回押すことでハイライトを消す
+noremap <ESC><ESC> :nohlsearch<CR><ESC>
+" カーソル下の単語を * で検索
+vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>
 
 let Grep_Skip_Dirs = '.svn .git'
 let Grep_Skip_Files = '*.bak *~ *.swp'
@@ -42,6 +46,9 @@ smap <C-H> <BS>
 inoremap <C-D> <Del>
 inoremap <C-B> <Left>
 inoremap <C-F> <Right>
+" TABにて対応ペアにジャンプ
+nnoremap <Tab> %
+vnoremap <Tab> %
 
 "============================================================
 " appearance settings
