@@ -48,7 +48,7 @@ tm() {
 alias g='git'
 alias s='git status -sb && git stash list'
 alias ad='git add'
-alias aa='git add -A && s'
+alias aa='git add -A :/ && s'
 alias co='git checkout'
 alias ci='git commit'
 alias br='git branch'
