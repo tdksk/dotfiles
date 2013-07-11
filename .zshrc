@@ -157,8 +157,8 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 if zle -la | grep -q '^history-incremental-pattern-search'; then
-  bindkey '^R' history-incremental-pattern-search-backward
-  bindkey '^S' history-incremental-pattern-search-forward
+    bindkey '^R' history-incremental-pattern-search-backward
+    bindkey '^S' history-incremental-pattern-search-forward
 fi
 
 # aliases using pipes
