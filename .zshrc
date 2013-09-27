@@ -166,6 +166,7 @@ alias -g G="| grep"
 alias -g T="| tail"
 alias -g H="| head"
 alias -g L="| less -R"
+alias -g J="| jq '.'"
 
 # chpwd
 chpwd() {
