@@ -43,16 +43,24 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
-" noremap ; :
-" noremap : ;
+noremap gh ^
+noremap gl $
+noremap Y y$
+noremap <Space> :w<CR>
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
+nnoremap Q <Nop>
 cmap <C-A> <Home>
 cmap <C-E> <End>
 cmap <C-F> <Right>
 cmap <C-B> <Left>
+cmap <C-D> <Del>
 smap <C-H> <BS>
-inoremap <C-D> <Del>
+inoremap <C-A> <Home>
+inoremap <C-E> <End>
 inoremap <C-B> <Left>
 inoremap <C-F> <Right>
+inoremap <C-D> <Del>
 " TABにて対応ペアにジャンプ
 nnoremap <Tab> %
 vnoremap <Tab> %
