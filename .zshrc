@@ -222,5 +222,10 @@ if [ -f ~/.zsh/zaw/zaw.zsh ]; then
     bindkey "c;" zaw-git-branches
 fi
 
+if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red
+fi
+
 # local
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
