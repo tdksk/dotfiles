@@ -1,0 +1,11 @@
+*.bib	diff=bibtex
+*.cpp	diff=cpp
+*.cs	diff=csharp
+*.html	diff=html
+*.java	diff=java
+*.m	diff=objc
+*.pl	diff=perl
+*.php	diff=php
+*.py	diff=python
+*.rb	diff=ruby
+*.tex	diff=tex

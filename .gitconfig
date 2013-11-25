@@ -30,6 +30,7 @@
   tree = log --graph --pretty=format:'%Cred%h%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative
 [core]
   excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
 
 [tig "bind"]
   # Disable default G mapping to git gc
