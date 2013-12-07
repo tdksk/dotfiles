@@ -61,9 +61,6 @@ inoremap <C-E> <End>
 inoremap <C-B> <Left>
 inoremap <C-F> <Right>
 inoremap <C-D> <Del>
-" TABにて対応ペアにジャンプ
-nnoremap <Tab> %
-vnoremap <Tab> %
 
 "============================================================
 " appearance settings
