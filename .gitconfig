@@ -1,6 +1,9 @@
 [user]
   name  = Keisuke Tada
-  email = tdkskdt@gmail.com
+[github]
+  user = tdksk
+[include]
+  path = ~/.gitconfig.local
 [color]
   ui = true
 [push]
