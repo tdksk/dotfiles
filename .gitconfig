@@ -9,27 +9,27 @@
   ad = add
   co = checkout
   ci = commit
-  s = status
+  s  = status
   br = branch
   ba = branch -a
   di = diff
-  d = diff --stat
+  d  = diff --stat
   dc = diff --cached
   dw = diff --word-diff=color
   pr = pull --rebase
-  ri = rebase -i
+  ri        = rebase -i
   rcontinue = rebase --continue
-  rabort = rebase --abort
-  st = stash
-  stp = stash pop
-  sm = submodule
+  rabort    = rebase --abort
+  st   = stash
+  stp  = stash pop
+  sm   = submodule
   smup = submodule update --init --recursive
   smpa = "submodule foreach 'git checkout master; git pull'"
-  l = log --stat --pretty=format:'%Cred%h %Creset%s %Cgreen(%cr) %C(bold blue)%an%Creset%C(yellow)%d %Creset'
-  lg = log -p --stat
+  l    = log --stat --pretty=format:'%Cred%h %Creset%s %Cgreen(%cr) %C(bold blue)%an%Creset%C(yellow)%d %Creset'
+  lg   = log -p --stat
   tree = log --graph --pretty=format:'%Cred%h%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative
 [core]
-  excludesfile = ~/.gitignore
+  excludesfile   = ~/.gitignore
   attributesfile = ~/.gitattributes
 
 [tig "bind"]
@@ -43,6 +43,6 @@
   generic = ^b move-page-up
   generic = ^f move-page-down
 [tig "color"]
-  cursor = default black
+  cursor      = default black
   title-focus = white black
-  title-blur = black white
+  title-blur  = black white
