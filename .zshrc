@@ -219,7 +219,7 @@ if [ -f ~/.zsh/zaw/zaw.zsh ]; then
     source ~/.zsh/zaw/zaw.zsh
     zstyle ':filter-select' case-insensitive yes
     bindkey "c'" zaw-history
-    bindkey "c;" zaw-git-branches
+    bindkey "c;" zaw-git-recent-branches
 fi
 
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
