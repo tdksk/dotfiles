@@ -43,8 +43,6 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
-noremap gh ^
-noremap gl $
 noremap Y y$
 noremap <Space> :w<CR>
 nnoremap ZZ <Nop>
