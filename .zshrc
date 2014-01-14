@@ -85,7 +85,7 @@ if [ -f ~/.zsh/zsh-vcs-prompt/zshrc.sh ]; then
 fi
 
 if [ "$SSH_CLIENT" ]; then
-    PROMPT_HOST="@%{$fg_bold[blue]%}%m"
+    PROMPT_HOST="%{$fg_bold[blue]%}@%m"
 else
     PROMPT_HOST=""
 fi
