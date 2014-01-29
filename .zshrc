@@ -224,10 +224,22 @@ if [ -f ~/.zsh/zaw/zaw.zsh ]; then
     bindkey "^X@c;" zaw-git-recent-branches
 fi
 
+# zsh-syntax-highlighting
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red
 fi
+
+case $OSTYPE in
+    # OS X
+    darwin*)
+        # zsh-notify
+        if [ -f ~/.zsh/zsh-notify/notify.plugin.zsh ]; then
+            source ~/.zsh/zsh-notify/notify.plugin.zsh
+            export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10
+        fi
+        ;;
+esac
 
 # local
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
