@@ -8,6 +8,8 @@
   ui = true
 [push]
   default = current
+[merge]
+  conflictstyle = diff3
 [alias]
   ad = add
   co = checkout
