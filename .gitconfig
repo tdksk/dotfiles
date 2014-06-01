@@ -31,6 +31,7 @@
   l    = log --stat --pretty=format:'%Cred%h %Creset%s %Cgreen(%cr) %C(bold blue)%an%Creset%C(yellow)%d %Creset'
   lg   = log -p --stat
   tree = log --graph --pretty=format:'%Cred%h%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative
+  branch-root = merge-base master HEAD
 [core]
   excludesfile   = ~/.gitignore
   attributesfile = ~/.gitattributes
