@@ -181,3 +181,8 @@ undo() {
     git reset --soft HEAD$back
     git reset
 }
+
+# git-replace
+git-replace() {
+    git grep -l $1 | xargs sed -i '' -e "s/$1/$2/g"
+}
