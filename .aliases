@@ -182,6 +182,13 @@ undo() {
     git reset
 }
 
+# git-update
+update() {
+    local branch="master"
+    if [ "$1" ]; then branch="$1"; fi
+    git stash save -u && git checkout $branch && git pull && git checkout - && git rebase $branch && git stash pop
+}
+
 # git-replace
 git-replace() {
     git grep -l $1 | xargs sed -i '' -e "s/$1/$2/g"
