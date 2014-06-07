@@ -169,6 +169,7 @@ alias -g T="| tail"
 alias -g H="| head"
 alias -g L="| less -R"
 alias -g J="| jq '.'"
+alias -g C="| pbcopy"
 
 # chpwd
 chpwd() {
