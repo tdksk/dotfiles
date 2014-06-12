@@ -22,6 +22,8 @@ h() {
 alias tls='tmux ls'
 alias b='bundle'
 alias be='bundle exec'
+alias rs='bundle exec rails server'
+alias rc='bundle exec rails console'
 alias t='tig'
 
 e() {
