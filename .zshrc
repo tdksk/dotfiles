@@ -150,6 +150,7 @@ zshaddhistory() {
     # 以下の条件をすべて満たすものだけをヒストリに追加する
     [[ ${#line} -ge 5
         && ${line% *} != 'git checkout'
+        && ${line% *} != 'cd'
     ]]
 }
 
@@ -222,7 +223,6 @@ if [ -f ~/.zsh/zaw/zaw.zsh ]; then
     source ~/.zsh/zaw/zaw.zsh
     zstyle ':filter-select' case-insensitive yes
     bindkey "^X@c'" zaw-history
-    bindkey "^X@c;" zaw-git-recent-branches
 fi
 
 # zsh-syntax-highlighting
@@ -241,6 +241,21 @@ case $OSTYPE in
         fi
         ;;
 esac
+
+# go
+export GOPATH=$HOME
+export PATH=$PATH:$GOPATH/bin
+
+function peco-src () {
+    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-src
+bindkey '^X@c;' peco-src
 
 # local
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local

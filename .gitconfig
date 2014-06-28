@@ -2,6 +2,8 @@
   name  = Keisuke Tada
 [github]
   user = tdksk
+[ghq]
+  root = ~/src
 [include]
   path = ~/.gitconfig.local
 [color]
