@@ -195,3 +195,8 @@ update() {
 git-replace() {
     git grep -l $1 | xargs sed -i '' -e "s/$1/$2/g"
 }
+
+# peco
+p() { peco | while read LINE; do $@ $LINE; done }
+alias o='git ls-files | p open'
+alias psp='ps aux | peco'
