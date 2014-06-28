@@ -222,7 +222,6 @@ fi
 if [ -f ~/.zsh/zaw/zaw.zsh ]; then
     source ~/.zsh/zaw/zaw.zsh
     zstyle ':filter-select' case-insensitive yes
-    bindkey "^X@c'" zaw-history
 fi
 
 # zsh-syntax-highlighting
@@ -245,6 +244,23 @@ esac
 # go
 export GOPATH=$HOME
 export PATH=$PATH:$GOPATH/bin
+
+# peco
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey "^X@c'" peco-select-history
 
 function peco-src () {
     local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
