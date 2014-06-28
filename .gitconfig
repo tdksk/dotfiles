@@ -34,6 +34,8 @@
   lg   = log -p --stat
   tree = log --graph --pretty=format:'%Cred%h%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative
   branch-root = merge-base master HEAD
+  today = log --since=midnight --author='Keisuke Tada' --oneline
+  yesterday = log --since=yesterday --author='Keisuke Tada' --oneline
 [core]
   excludesfile   = ~/.gitignore
   attributesfile = ~/.gitattributes
