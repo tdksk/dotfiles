@@ -1,9 +1,6 @@
 [submodule ".zsh/zsh-vcs-prompt"]
 	path = .zsh/zsh-vcs-prompt
 	url = https://github.com/yonchu/zsh-vcs-prompt.git
-[submodule ".zsh/zaw"]
-	path = .zsh/zaw
-	url = https://github.com/zsh-users/zaw.git
 [submodule ".zsh/zsh-completions"]
 	path = .zsh/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git

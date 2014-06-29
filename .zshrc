@@ -208,12 +208,6 @@ ls_abbrev() {
     fi
 }
 
-# zaw
-if [ -f ~/.zsh/zaw/zaw.zsh ]; then
-    source ~/.zsh/zaw/zaw.zsh
-    zstyle ':filter-select' case-insensitive yes
-fi
-
 # zsh-syntax-highlighting
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
