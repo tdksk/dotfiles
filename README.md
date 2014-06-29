@@ -1,10 +1,10 @@
-tdksk dotfiles
-==============
+# dotfiles
 
-Installation
-------------
+## Installation
 
-```bash
-$ git clone https://tdksk@bitbucket.org/tdksk/.dotfiles.git
+```sh
+$ git clone git@github.com:tdksk/.dotfiles.git
+$ cd .dotfiles
+$ git submodule update --init --recursive
 $ sh .dotfiles/symlink.sh
 ```
