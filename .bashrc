@@ -1,27 +1,19 @@
 [ -r ~/.aliases ] && source ~/.aliases
 
-# 上書き禁止
 set -o noclobber
 
-# 履歴保存数
 export HISTSIZE=10000
-# 重複履歴を無視 & 空白から始めたコマンドを保存しない
 export HISTCONTROL=ignoreboth
-# 履歴保存対象外
 export HISTIGNORE="?:??:???:history*:cd ~:cd ..:l *"
-# 履歴に時刻を追加
 export HISTTIMEFORMAT='%Y%m%d %T '
-# 履歴の共有
 shopt -s histappend
 export PROMPT_COMMAND="history -a; history -n"
 
-# 何も入力していないときはコマンド名を補完しない
 shopt -s no_empty_cmd_completion
-# ディレクトリ名だけで cd >=4.0
+# 4.0
 # shopt -s autocd
-# cd するときディレクトリ名をよしなに修正する
 shopt -s cdspell
-# 補完するときディレクトリ名をよしなに修正する >=4.0
+# 4.0
 # shopt -s dirspell
 
 # git-completion

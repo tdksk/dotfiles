@@ -147,7 +147,6 @@ setopt hist_verify
 zshaddhistory() {
     local line=${1%%$'\n'}
 
-    # 以下の条件をすべて満たすものだけをヒストリに追加する
     [[ ${#line} -ge 5
         && ${line% *} != 'git checkout'
         && ${line% *} != 'cd'
