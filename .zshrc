@@ -247,9 +247,11 @@ zle -N peco-select-history
 bindkey "^X@c'" peco-select-history
 
 function peco-src () {
-    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+    local selected_dir=$(ghq list | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
+        local root=$(git config ghq.root)
+        local dir="$root/${selected_dir}"
+        BUFFER="cd ${dir}"
         zle accept-line
     fi
     zle clear-screen
