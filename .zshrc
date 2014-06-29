@@ -208,15 +208,6 @@ ls_abbrev() {
     fi
 }
 
-# z
-if [ -f ~/.zsh/z/z.sh ]; then
-    _Z_CMD=j
-    source ~/.zsh/z/z.sh
-    precmd() {
-        _z --add "$(pwd -P)"
-    }
-fi
-
 # zaw
 if [ -f ~/.zsh/zaw/zaw.zsh ]; then
     source ~/.zsh/zaw/zaw.zsh
