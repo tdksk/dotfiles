@@ -199,4 +199,3 @@ git-replace() {
 # peco
 p() { peco | while read LINE; do $@ $LINE; done }
 alias o='git ls-files | p open'
-alias psp='ps aux | peco'
