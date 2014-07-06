@@ -170,6 +170,7 @@ alias -g H="| head"
 alias -g L="| less -R"
 alias -g J="| jq '.'"
 alias -g C="| pbcopy"
+alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 
 # chpwd
 chpwd() {
