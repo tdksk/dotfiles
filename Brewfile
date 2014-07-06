@@ -7,6 +7,7 @@ install zsh
 install emacs
 install tmux
 install reattach-to-user-namespace
+install terminal-notifier
 install tig
 install hub
 install wget
