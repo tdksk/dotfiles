@@ -50,8 +50,8 @@
   generic = G move-last-line
   generic = u move-page-up
   generic = d move-page-down
-  generic = ^b move-page-up
-  generic = ^f move-page-down
+  generic = <Ctrl-b> move-page-up
+  generic = <Ctrl-f> move-page-down
 [tig "color"]
   cursor      = default black
   title-focus = white black
