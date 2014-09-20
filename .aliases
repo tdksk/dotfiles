@@ -209,4 +209,12 @@ co-pr() {
 
 # peco
 p() { peco | while read LINE; do $@ $LINE; done }
+peco-pkill() {
+    for pid in `ps aux | peco | awk '{ print $2 }'`
+    do
+        kill $pid
+        echo "Killed ${pid}"
+    done
+}
 alias o='git ls-files | p open'
+alias pk='peco-pkill'

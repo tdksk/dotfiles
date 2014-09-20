@@ -260,14 +260,5 @@ function peco-src () {
 zle -N peco-src
 bindkey '^X@c;' peco-src
 
-function peco-pkill() {
-  for pid in `ps aux | peco | awk '{ print $2 }'`
-  do
-    kill $pid
-    echo "Killed ${pid}"
-  done
-}
-alias pk='peco-pkill'
-
 # local
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
