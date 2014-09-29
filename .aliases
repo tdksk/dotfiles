@@ -197,7 +197,7 @@ git-replace() {
 }
 
 # git-co-pr
-co-pr() {
+copr() {
     if [ -z "$1" ]; then
         echo "Usage: $0 id"
         return 1
