@@ -19,3 +19,9 @@
 [submodule ".tmux/tmux-open"]
 	path = .tmux/tmux-open
 	url = https://github.com/tmux-plugins/tmux-open
+[submodule ".tmux/tmux-online-status"]
+	path = .tmux/tmux-online-status
+	url = https://github.com/tmux-plugins/tmux-online-status
+[submodule ".tmux/tmux-battery"]
+	path = .tmux/tmux-battery
+	url = https://github.com/tmux-plugins/tmux-battery
