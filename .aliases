@@ -24,6 +24,7 @@ alias b='bundle'
 alias be='bundle exec'
 alias rs='bundle exec rails server'
 alias rc='bundle exec rails console'
+alias fs='bundle exec foreman start'
 alias t='tig'
 
 e() {
