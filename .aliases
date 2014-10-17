@@ -62,6 +62,7 @@ alias sm='git submodule'
 alias sma='git submodule add'
 alias smup='git submodule update --init --recursive'
 alias smpa='git submodule foreach "git checkout master; git pull"'
+alias d='git diff'
 alias c='git diff --cached'
 alias l='git l'
 alias tree='git tree'
@@ -93,41 +94,6 @@ stp() {
         git stash pop stash@{$1}
     else
         git stash pop
-    fi
-}
-
-a() {
-    if [ $# -eq 1 ]; then
-        git add `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
-        s
-    else
-        git add -i
-    fi
-}
-
-d() {
-    if [ $# -eq 1 ]; then
-        git diff -- `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
-    else
-        git diff
-    fi
-}
-
-r() {
-    if [ $# -eq 1 ]; then
-        git reset -- `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
-    else
-        echo "'"r"'" must take exactly one argument.
-        return 1
-    fi
-}
-
-v() {
-    if [ $# -eq 1 ]; then
-        vim `git status -sb | grep -v "^#" | awk  '{print$1="";print}' | grep -v "^$" | awk "NR==$1"`
-    else
-        echo "'"v"'" must take exactly one argument.
-        return 1
     fi
 }
 
