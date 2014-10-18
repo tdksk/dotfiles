@@ -7,6 +7,6 @@
     "Style": {
         "Basic": ["on_default", "default"],
         "Selected": ["on_magenta", "black"],
-        "Query": ["on_blue", "black"]
+        "Matched": ["yellow"]
     }
 }
