@@ -52,6 +52,8 @@
   generic = d move-page-down
   generic = <Ctrl-b> move-page-up
   generic = <Ctrl-f> move-page-down
+  # Misc
+  generic = o enter
 [tig "color"]
   cursor      = default black
   title-focus = white black
