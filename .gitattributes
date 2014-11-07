@@ -9,3 +9,4 @@
 *.py	diff=python
 *.rb	diff=ruby
 *.tex	diff=tex
+*.pbxproj	merge=mergepbx
