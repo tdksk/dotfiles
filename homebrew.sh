@@ -16,6 +16,7 @@ brew install wget
 brew install the_silver_searcher
 brew install jq
 brew install aspell --lang=en
+brew install cmigemo
 brew install autossh
 
 brew tap peco/peco
