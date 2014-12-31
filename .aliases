@@ -203,3 +203,7 @@ cdf() {
         echo 'No Finder window found' >&2
     fi
 }
+
+# Xcode
+alias ios='open /Applications/Xcode.app/Contents/Developer/Applications/iOS\ Simulator.app'
+alias sourcekitsad='rm -rf ~/Library/Developer/Xcode/DerivedData'
