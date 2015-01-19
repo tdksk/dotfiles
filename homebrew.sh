@@ -18,6 +18,7 @@ brew install jq
 brew install aspell --lang=en
 brew install cmigemo
 brew install autossh
+brew install chisel
 
 brew tap peco/peco
 brew install peco
