@@ -191,6 +191,23 @@ peco-pkill() {
 alias o='git ls-files | p open'
 alias pk='peco-pkill'
 
+# tmux
+tssh() {
+    hosts=("$@")
+    first="true"
+    for host in "${hosts[@]}"; do
+        if [ $first = "true" ]; then
+            tmux new-window "ssh $host"
+            first="false"
+        else
+            tmux split-window "ssh $host"
+            tmux select-layout tiled > /dev/null
+        fi
+    done
+    tmux select-pane -t 0
+    tmux set-window-option synchronize-panes on > /dev/null
+}
+
 # OS X
 alias f='open .'
 cdf() {
