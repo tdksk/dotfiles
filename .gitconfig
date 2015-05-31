@@ -8,6 +8,10 @@
   path = ~/.gitconfig.local
 [color]
   ui = true
+[pager]
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
 [push]
   default = current
 [merge]
