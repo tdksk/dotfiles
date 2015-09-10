@@ -170,7 +170,7 @@ copr() {
         return 1
     fi
     local id="$1"
-    git fetch origin pull/$id/head:pull/$id
+    git fetch -fu ${2:-origin} pull/$id/head:pull/$id
     git checkout pull/$id
 }
 
