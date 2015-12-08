@@ -181,7 +181,7 @@ pr-clean() {
 
 # git-browse-pr
 bpr() {
-    git show $(perl -ne 'print if ($seen{$_} .= @ARGV) =~ /10$/' <(git rev-list --ancestry-path $1..master) <(git rev-list --first-parent $1..master) | tail -1) | grep 'pull request' | ruby -ne 'id = $_.scan(/#\d+/).first.sub("#", ""); repo = `hub browse -u`.chomp; `open #{repo}/pull/#{id}`'
+    git show $(ruby -e 'print (File.readlines(ARGV[0]) & File.readlines(ARGV[1])).last' <(git rev-list --ancestry-path $1..master) <(git rev-list --first-parent $1..master) | tail -1) | grep 'pull request' | ruby -ne 'id = $_.scan(/#\d+/).first.sub("#", ""); repo = `hub browse -u`.chomp; `open #{repo}/pull/#{id}`'
 }
 
 # peco
