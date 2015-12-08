@@ -1,0 +1,22 @@
+" set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+" noremap <C-[> :noh<CR>
+
+noremap Y y$
+noremap <Space> :w<CR>
+noremap <C-l> zz
+noremap <C-j> <C-e>
+noremap <C-k> <C-y>
+noremap <CR> o<Esc>
+noremap <Right> <C-f>
+noremap <Left> <C-b>
+inoremap <C-[> <C-[>:w<CR>
+inoremap <C-e> <C-o>$
+cmap <C-a> <Home>
+cmap <C-e> <End>
+cmap <C-f> <Right>
+cmap <C-b> <Left>
+cmap <C-d> <Del>
+smap <C-h> <BS>
