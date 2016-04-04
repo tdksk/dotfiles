@@ -1,0 +1,73 @@
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config checkDefaultsOnLoad true
+
+alias laptop 0
+alias thunderbolt 1
+
+alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias leftmost move screenOriginX;screenOriginY screenSizeX*2/3;screenSizeY
+alias leftmiddle move screenOriginX+screenSizeX/12;screenOriginY+screenSizeY/8 screenSizeX/2;screenSizeY*3/4
+alias rightmiddle move screenOriginX+screenSizeX*7/12;screenOriginY+screenSizeY/8 screenSizeX*5/12;screenSizeY*3/4
+alias rightless move screenOriginX+screenSizeX*2/3;screenOriginY screenSizeX*1/3;screenSizeY
+alias topleft move screenOriginX;screenOriginY screenSizeX*2/3;screenSizeY/2
+alias bottomleft move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX*2/3;screenSizeY/2
+alias topright move screenOriginX+screenSizeX*2/3;screenOriginY screenSizeX/3;screenSizeY/2
+alias bottomright move screenOriginX+screenSizeX*2/3;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2
+alias center move screenOriginX+(screenSizeX-1200)/2;screenOriginY 1200;screenSizeY
+
+alias thunderbolt-full ${full} ${thunderbolt}
+alias thunderbolt-center ${center} ${thunderbolt}
+alias thunderbolt-leftmiddle ${leftmiddle} ${thunderbolt}
+alias thunderbolt-topleft ${topleft} ${thunderbolt}
+alias thunderbolt-bottomleft ${bottomleft} ${thunderbolt}
+alias thunderbolt-topright ${topright} ${thunderbolt}
+alias thunderbolt-bottomright ${bottomright} ${thunderbolt}
+
+alias laptop-full ${full} ${laptop}
+alias laptop-center ${center} ${laptop}
+
+alias layout-key ctrl;shift;cmd
+
+layout 2monitors 'Safari':REPEAT ${thunderbolt-leftmiddle}
+layout 2monitors 'Google Chrome':REPEAT ${thunderbolt-leftmiddle}
+layout 2monitors 'Todoist':REPEAT ${thunderbolt-leftmiddle}
+layout 2monitors 'iTerm':REPEAT ${thunderbolt-leftmiddle}
+layout 2monitors 'Xcode':REPEAT ${thunderbolt-leftmiddle}
+layout 2monitors 'Sketch':REPEAT ${thunderbolt-leftmiddle}
+layout 2monitors 'Flinto':REPEAT ${thunderbolt-leftmiddle}
+layout 2monitors 'HipChat':REPEAT ${thunderbolt-topleft}
+layout 2monitors 'Slack':REPEAT ${thunderbolt-bottomleft}
+layout 2monitors 'Google Analytics Holiday iOS':REPEAT ${thunderbolt-topright}
+layout 2monitors 'Google Analytics Holiday Web':REPEAT ${thunderbolt-bottomright}
+layout 2monitors 'Google Calendar':REPEAT ${laptop-full}
+
+layout 1monitor 'Safari':REPEAT ${laptop-center}
+layout 1monitor 'Google Chrome':REPEAT ${laptop-center}
+layout 1monitor 'Todoist':REPEAT ${laptop-center}
+layout 1monitor 'iTerm':REPEAT ${laptop-center}
+layout 1monitor 'Xcode':REPEAT ${laptop-center}
+layout 1monitor 'Sketch':REPEAT ${laptop-center}
+layout 1monitor 'Flinto':REPEAT ${laptop-center}
+layout 1monitor 'HipChat':REPEAT ${laptop-full}
+layout 1monitor 'Slack':REPEAT ${laptop-full}
+layout 1monitor 'Google Analytics Holiday iOS':REPEAT ${laptop-center}
+layout 1monitor 'Google Analytics Holiday Web':REPEAT ${laptop-center}
+layout 1monitor 'Google Calendar':REPEAT ${laptop-center}
+
+default 1monitor resolutions:${laptop}
+default 2monitors resolutions:${thunderbolt};${laptop}
+
+bind f:${layout-key} chain ${thunderbolt-full} | ${laptop-full}
+bind g:${layout-key} chain ${thunderbolt-center} | ${laptop-center}
+bind h:${layout-key} ${leftmost}
+bind j:${layout-key} ${leftmiddle}
+bind k:${layout-key} ${rightmiddle}
+bind l:${layout-key} ${rightless}
+bind u:${layout-key} ${topleft}
+bind n:${layout-key} ${bottomleft}
+bind i:${layout-key} ${topright}
+bind m:${layout-key} ${bottomright}
+bind 1:${layout-key} layout 1monitor
+bind 2:${layout-key} layout 2monitors
