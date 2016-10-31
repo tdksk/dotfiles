@@ -224,4 +224,4 @@ cdf() {
 
 # Xcode
 alias ios='open /Applications/Xcode.app/Contents/Developer/Applications/iOS\ Simulator.app'
-alias sourcekitsad='rm -rf ~/Library/Developer/Xcode/DerivedData'
+alias clean-derived-data='rm -rf ~/Library/Developer/Xcode/DerivedData'
