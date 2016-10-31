@@ -48,6 +48,7 @@
 [core]
   excludesfile   = ~/.gitignore
   attributesfile = ~/.gitattributes
+  editor = vim
 
 [tig "bind"]
   # Disable default G mapping to git gc
