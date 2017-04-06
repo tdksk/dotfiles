@@ -67,3 +67,13 @@ bind k:${layout-key} ${rightmiddle}
 bind l:${layout-key} ${rightless}
 bind 1:${layout-key} layout 1monitor
 bind 2:${layout-key} layout 2monitors
+
+alias focus-key ctrl;shift
+
+bind j:${focus-key} focus 'Finder'
+bind l:${focus-key} focus 'Slack'
+bind k:${focus-key} focus 'Xcode'
+bind m:${focus-key} focus 'Simulator'
+bind i:${focus-key} focus 'Google Chrome'
+bind h:${focus-key} focus 'Todoist'
+bind g:${focus-key} focus 'Jasper'
