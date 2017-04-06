@@ -31,10 +31,12 @@ alias layout-key ctrl;shift;cmd
 layout 2monitors 'Safari':REPEAT ${thunderbolt-leftmiddle}
 layout 2monitors 'Google Chrome':REPEAT ${thunderbolt-leftmiddle}
 layout 2monitors 'Todoist':REPEAT ${thunderbolt-leftmiddle}
+layout 2monitors 'Bear':REPEAT ${thunderbolt-leftmiddle}
 layout 2monitors 'iTerm2':REPEAT ${thunderbolt-leftmiddle}
 layout 2monitors 'Xcode':REPEAT ${thunderbolt-leftmiddle}
 layout 2monitors 'Sketch':REPEAT ${thunderbolt-leftmiddle}
 layout 2monitors 'Flinto':REPEAT ${thunderbolt-leftmiddle}
+layout 2monitors 'Jasper':REPEAT ${thunderbolt-leftmiddle}
 layout 2monitors 'Slack':REPEAT ${thunderbolt-leftmostmiddle}
 layout 2monitors 'Google Analytics Holiday iOS':REPEAT ${thunderbolt-topright}
 layout 2monitors 'Google Analytics Holiday Web':REPEAT ${thunderbolt-bottomright}
@@ -43,10 +45,12 @@ layout 2monitors 'Google Calendar':REPEAT ${laptop-full}
 layout 1monitor 'Safari':REPEAT ${laptop-center}
 layout 1monitor 'Google Chrome':REPEAT ${laptop-center}
 layout 1monitor 'Todoist':REPEAT ${laptop-center}
+layout 1monitor 'Bear':REPEAT ${laptop-center}
 layout 1monitor 'iTerm2':REPEAT ${laptop-center}
 layout 1monitor 'Xcode':REPEAT ${laptop-center}
 layout 1monitor 'Sketch':REPEAT ${laptop-center}
 layout 1monitor 'Flinto':REPEAT ${laptop-center}
+layout 1monitor 'Jasper':REPEAT ${laptop-center}
 layout 1monitor 'Slack':REPEAT ${laptop-full}
 layout 1monitor 'Google Analytics Holiday iOS':REPEAT ${laptop-center}
 layout 1monitor 'Google Analytics Holiday Web':REPEAT ${laptop-center}
