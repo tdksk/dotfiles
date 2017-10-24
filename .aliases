@@ -209,6 +209,9 @@ tssh() {
     tmux set-window-option synchronize-panes on > /dev/null
 }
 
+# Util
+alias csview='column -s, -t | less -R'
+
 # OS X
 alias f='open .'
 cdf() {
