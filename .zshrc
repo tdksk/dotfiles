@@ -260,5 +260,8 @@ function peco-src () {
 zle -N peco-src
 bindkey '^X@c;' peco-src
 
+# rubocop
+# export RUBOCOP_OPTS='-D -S -E -P' # https://qiita.com/tonluqclml/items/92071019923ab6a2e8e3
+
 # local
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
