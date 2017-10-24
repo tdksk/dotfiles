@@ -7,3 +7,5 @@ do
         ln -Fis "$PWD/$dotfile" $HOME
     fi
 done
+
+ln -Fis "$PWD/karabiner.json" "$HOME/.config/karabiner"
