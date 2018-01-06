@@ -8,4 +8,5 @@ $ cd dotfiles
 $ git submodule update --init --recursive
 $ sh symlink.sh
 $ sh homebrew.sh
+$ sh macos.sh
 ```
