@@ -3,7 +3,7 @@
 [github]
   user = tdksk
 [ghq]
-  root = ~/src
+  root = ~/go/src
 [include]
   path = ~/.gitconfig.local
 [color]

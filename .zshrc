@@ -227,7 +227,7 @@ case $OSTYPE in
 esac
 
 # go
-export GOPATH=$HOME
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 # peco
