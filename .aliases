@@ -213,6 +213,15 @@ tssh() {
 # Util
 alias csview='column -s, -t | less -R'
 
+videotogif() {
+    input="$1"
+    test "$input" || input="pipe:0"
+
+    ffmpeg -i "$input" -r 10 -f image2pipe -vcodec ppm - \
+        | convert -layers Optimize - gif:- \
+        | gifsicle -O3 --multifile -
+}
+
 # OS X
 alias f='open .'
 cdf() {
